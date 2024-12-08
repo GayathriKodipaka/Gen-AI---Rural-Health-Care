@@ -1,0 +1,41 @@
+/* Basic reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Call button container */
+.call-button-container {
+    text-align: center;
+}
+
+/* Call button styles */
+.call-button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745; /* Green button */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.call-button:hover {
+    background-color: #218838;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Active state */
+.call-button:active {
+    background-color: #1e7e34;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}

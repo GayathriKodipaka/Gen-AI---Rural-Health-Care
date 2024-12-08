@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <link rel="stylesheet" href="l2.css">
+</head>
+<body>
+    <div class="auth-buttons-container">
+        <a href="/login.html" class="auth-btn">Login</a>
+        <a href="/signup.html" class="auth-btn signup-btn">Signup</a>
+    </div>
+    <div class="background">
+        <!-- Chatbot Section -->
+        <div class="chatbot-container">
+            <h1>Welcome to Our Website</h1>
+            <p>Click the button below to start chatting!</p>
+            <button class="chatbot-btn" onclick=""><a href="pagechat.html">Voice Assistant</button>
+            <button class="chatbot-btn" onclick=""><a href="call.html">Call us</button>
+            <button class="chatbot-btn" onclick=""><a href="map.html">Map</button>
+        </div>
+
+        <!-- Chatbot Window -->
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Chatbot</span>
+                <button class="close-btn" onclick="toggleChat()">X</button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <p>Hi! How can I assist you today?</p>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="userInput" placeholder="Type your message..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

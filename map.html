@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy and Delivery Coordination</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+
+    .info {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pharmacy and Delivery Coordination</h1>
+
+  <div class="info">
+    <p>Find nearby pharmacies and delivery points on the map below.</p>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    const map = L.map('map').setView([28.6139, 77.2090], 10); // Centered on New Delhi, India
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Sample locations of pharmacies and delivery points
+    const locations = [
+      { lat: 28.7041, lng: 77.1025, name: "Pharmacy 1" }, // Example pharmacy
+      { lat: 28.5355, lng: 77.3910, name: "Pharmacy 2" }, // Example pharmacy
+      { lat: 28.4595, lng: 77.0266, name: "Delivery Point" } // Example delivery point
+    ];
+
+    // Add markers to the map
+    locations.forEach(location => {
+      const marker = L.marker([location.lat, location.lng]).addTo(map);
+      marker.bindPopup(`<b>${location.name}</b>`).openPopup();
+    });
+  </script>
+</body>
+</html>

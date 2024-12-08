@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="register" class="container">
+        <h1>Register</h1>
+        <div>
+            <h4>First Name</h4>
+            <p><input type="text" placeholder="Enter your first name" name="firstname" required></p>
+            <h4>Last Name</h4>
+            <p><input type="text" placeholder="Enter your last name" name="lastname" required></p>
+            <h4>Email</h4>
+            <p><input type="email" placeholder="Enter your e-mail" name="email" required></p>
+            <h4>DOB</h4>
+            <p><input type="date" name="dob" required></p>
+            <h4>Username</h4>
+            <p><input type="text" placeholder="Set Username" name="username" required></p>
+            <h4>Password</h4>
+            <p><input type="password" placeholder="Set password" name="password" required></p>
+            <h4>Gender</h4>
+            <p>
+                <input type="radio" name="gender" value="Male" required>
+                <label for="Male">Male</label><br>
+                <input type="radio" name="gender" value="Female" required>
+                <label for="Female">Female</label><br>
+                <input type="radio" name="gender" value="Others" required>
+                <label for="others">Others</label><br>
+            </p>
+            <button onclick="window.location.href='booking.html'">Submit</button>
+            <p class="link">Have an account? <a onclick="window.location.href='login.html'">Log in</a></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(message => {
+                document.getElementById('message').innerText = message;
+            })
+            .catch(error => {
+                document.getElementById('message').innerText = 'Error: ' + error;
+            });
+        });
+    </script>
+</body>
+
+
+</html>

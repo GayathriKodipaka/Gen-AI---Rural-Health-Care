@@ -1,0 +1,52 @@
+/* Basic reset for some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set background color and font family */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 100vh;
+}
+
+/* Position the buttons at the top right corner */
+.auth-buttons-container {
+    position: absolute;
+    top: 20px;  /* Adjust this for desired top position */
+    right: 20px; /* Adjust this for desired right position */
+}
+
+/* Common button styles */
+.auth-btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;  /* Add space between the buttons */
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Login Button Style */
+.auth-btn {
+    background-color: #007BFF;
+}
+
+.auth-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Signup Button Style */
+.signup-btn {
+    background-color: #28a745;
+}
+
+.signup-btn:hover {
+    background-color: #218838;
+}
